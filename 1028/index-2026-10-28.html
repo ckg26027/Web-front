@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        ヘッダー
+    </header>
+    <nav>
+        ナビゲーション
+    </nav>
+    <main>
+        <!-- method="post"  は入力データをURLの中に埋め込まれないために使用される。 -->
+        <form action="" method="post">
+            名前： <input type="text" name="formName" id=""><br>
+            年齢： <input type="text" name="formNenrei" id=""><br>
+            <!-- ラジオボタンのように複数の中から一つを選ぶときには、nameを同じにする -->
+            性別： <input type="radio" name="formSeibetu" id="" value="男">男
+                   <input type="radio" name="formSeibetu" id="" value="女">女
+                   <input type="radio" name="formSeibetu" id="" value="答えたくない">答えたくない
+            好きな食べ物： <br>
+                          <input type="checkbox" name="checkboxSushi" id="">すし
+                          <input type="checkbox" name="checkboxYakiniku" id="">やきにく
+                          <input type="checkbox" name="" id="">カレー
+                          <input type="checkbox" name="" id="">スイーツ
+            <br>
+            <!-- フォームに入力された文字列を送信するボタン -->
+            <input type="submit" value="送信">
+            <!-- フォームに入力された文字列などを消去するボタン -->
+            <input type="reset" value="取消">
+        </form>
+    </main>
+    <footer>
+        フッター
+    </footer>
+</body>
+</html>
