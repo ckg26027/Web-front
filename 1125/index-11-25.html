@@ -1,0 +1,77 @@
+<!-- filename : index-11-25.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            /* displayは表示(block)と非表示(none)を切り替える */
+            display: none;
+        }
+    </style>
+    <script>
+        function chck() {
+            // document : HTML全体
+            // forms[0] : formタグで囲まれている部分の最初（０）
+            //　elements['txtName'] ： name='txtName'で指定されるテキストボックス
+            // value: HTMLの文字列のこと
+            var item = document.forms[0].elements['txtName'].value;
+            if ("" == item) {
+                // error message 　 
+                // step.1 見えないボックスを選択する。
+                var target = document.getElementById('errorName');
+
+                // step.2 CSSの属性displayを表示(block）にする
+                target.style.display = "block";
+
+                // step.3 画面移動させない。
+                return false;
+
+            } else {     // そうではなかったら
+                // 正常 -> 何もしなくていい
+
+            }
+            // ここから年齢に関するチェック
+            var age = document.forms[0].elements['txtAge'].value;
+            if (age != "") {                                 // 年齢に何も入っていないならば
+                var target2 = document.getElementById('change');
+                target2.style.display = "block";
+                return false;
+            }
+            if (0 < age && age < 100) {                          // 年齢の範囲チェック 
+                var target2 = document.getElementById('change');
+                target2.style.display = "block";
+                return false;
+
+            }
+            return true;
+        } 
+    </script>
+</head>
+
+<body>
+    <h1>form sample </h1>
+    <form action="#" method="post">
+        name:
+        <input type="text" name="txtName" id="">
+        <!-- spanは囲まれた部分を一つの塊（文字）としてみる。 -->
+        <span id="errorName">* text is null, enter your name.</span>
+
+        <br>
+        <br>
+        age:
+        <input type="text" name="txtAge" id="">
+        <!-- 下の文字ををdiv要素で書くと、レイアウト要素となり、改行される -->
+        <span id="change">* text is null, 年齢を入れてください。</span>
+
+        <br>
+        <br>
+        <!-- chck()の終わりがfalseの値ならば、画面はそのまま -->
+        <input type="submit" value="送信" onclick="return chck();">
+    </form>
+</body>
+
+</html>
